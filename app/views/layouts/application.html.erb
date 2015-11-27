@@ -7,13 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if @usr != nil %>
+  <div align="right">
+    ログインユーザー：<%= @usr.username %> | <%= link_to "ログアウト", login_path(:id), method: :delete, data: {confirm: "ログアウトしますか？"} %>
+  </div>
   <ul>
     <li style="display: inline-block"><%= link_to "タスク一覧", tasks_path %> |</li>
     <li style="display: inline-block"><%= link_to "タスク登録", new_task_path %> |</li>
     <li style="display: inline-block"><%= link_to "ユーザー一覧", users_path %> |</li>
     <li style="display: inline-block"><%= link_to "カテゴリー一覧", categories_path %> |</li>
   </ul>
-
+<% end %>
 <%= yield %>
 
 </body>
