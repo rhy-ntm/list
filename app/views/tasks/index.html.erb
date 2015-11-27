@@ -1,5 +1,11 @@
 <h1>Listing tasks</h1>
 
+<%= form_tag({:action=>"search"},{:method=>"GET"}) do %>
+  <%= text_field_tag 'search[name]', @search_value %>
+  <%= submit_tag "検索" %>
+  <%= link_to "リセット", tasks_path %>
+<% end %>
+
 <table>
   <thead>
     <tr>

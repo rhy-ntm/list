@@ -60,6 +60,12 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def search
+    @search_value = params['search']['name']
+    @tasks = Task.where(" name LIKE '%#{@search_value}%' ")
+    render :index
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
