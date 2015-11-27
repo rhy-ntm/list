@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <h1>Listing tasks</h1>
 
 <%= form_tag({:action=>"search"},{:method=>"GET"}) do %>
@@ -30,7 +31,7 @@
         <td><%= task.user.username %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: "#{task.name}を削除しますか?" } %></td>
       </tr>
     <% end %>
   </tbody>
